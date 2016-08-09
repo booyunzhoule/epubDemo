@@ -1,0 +1,9 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="dialog_main_h">170dp</dimen>
+    <dimen name="dialog_watch_model_size">68dp</dimen>
+    <dimen name="dialog_main_seekbar_w">168dp</dimen>
+    <dimen name="dialog_main_seekbar_h">9dp</dimen>
+</resources>

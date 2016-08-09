@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/dialog_main_h"
+             android:background="@color/default_trans">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/zjb_icon_read_main_menu_bg"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/image_dialog_watch_model"
+            android:layout_width="@dimen/dialog_watch_model_size"
+            android:layout_height="@dimen/dialog_watch_model_size"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:padding="12dp"
+            android:src="@drawable/zjb_icon_read_night_model"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_dialog_main_last_chapter"
+                style="@style/MainDialog_Chapters_Text"
+                android:layout_marginRight="16dp"
+                android:text="@string/last_chapter"/>
+
+            <SeekBar
+                android:layout_width="@dimen/dialog_main_seekbar_w"
+                android:layout_height="@dimen/dialog_main_seekbar_h"
+                android:indeterminateDrawable="@drawable/zjb_shape_dialog_seekbar_indeterminat"
+                android:progressDrawable="@drawable/zjb_shape_dialog_seekbar_progress"/>
+
+            <TextView
+                android:id="@+id/tv_dialog_main_next_chapter"
+                style="@style/MainDialog_Chapters_Text"
+                android:layout_marginLeft="16dp"
+                android:text="@string/next_chapter"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/view_read_main_menu_catalog"
+                style="@style/MainDialog_Menu_Item_Frame">
+
+                <TextView
+                    style="@style/MainDialog_Menu_Text"
+                    android:drawableTop="@drawable/zjb_icon_read_main_menu_catalog"
+                    android:text="@string/read_catalog"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/view_read_main_menu_light"
+                style="@style/MainDialog_Menu_Item_Frame">
+
+                <TextView
+                    style="@style/MainDialog_Menu_Text"
+                    android:drawableTop="@drawable/zjb_icon_read_main_menu_light"
+                    android:text="@string/read_light"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/view_read_main_menu_txt_size"
+                style="@style/MainDialog_Menu_Item_Frame">
+
+                <TextView
+                    style="@style/MainDialog_Menu_Text"
+                    android:drawableTop="@drawable/zjb_icon_read_main_menu_txt_size"
+                    android:text="@string/read_set_txt_size"
+                    android:id="@+id/textView"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/view_read_main_menu_setting"
+                style="@style/MainDialog_Menu_Item_Frame">
+
+                <TextView
+                    style="@style/MainDialog_Menu_Text"
+                    android:drawableTop="@drawable/zjb_icon_read_main_menu_setting"
+                    android:text="@string/read_setting"/>
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
