@@ -1,100 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="@dimen/dialog_main_h"
-             android:background="@color/default_trans">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/zjb_icon_read_main_menu_bg"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/default_trans"
+              android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="@dimen/titleBar_h"
+        android:background="@color/default_gray"
+        android:gravity="bottom"
+        android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/image_dialog_watch_model"
-            android:layout_width="@dimen/dialog_watch_model_size"
-            android:layout_height="@dimen/dialog_watch_model_size"
-            android:layout_gravity="right"
-            android:layout_marginRight="20dp"
-            android:padding="12dp"
-            android:src="@drawable/zjb_icon_read_night_model"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/image_read_book_back"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:padding="16dp"
+            android:src="@drawable/zjb_icon_back_white"/>
 
-            <TextView
-                android:id="@+id/tv_dialog_main_last_chapter"
-                style="@style/MainDialog_Chapters_Text"
-                android:layout_marginRight="16dp"
-                android:text="@string/last_chapter"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0.5dp"
+            android:layout_weight="1"/>
 
-            <SeekBar
-                android:layout_width="@dimen/dialog_main_seekbar_w"
-                android:layout_height="@dimen/dialog_main_seekbar_h"
-                android:indeterminateDrawable="@drawable/zjb_shape_dialog_seekbar_indeterminat"
-                android:progressDrawable="@drawable/zjb_shape_dialog_seekbar_progress"/>
+        <ImageView
+            android:id="@+id/image_read_book_public"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:src="@drawable/zjb_icon_read_book_public"/>
 
-            <TextView
-                android:id="@+id/tv_dialog_main_next_chapter"
-                style="@style/MainDialog_Chapters_Text"
-                android:layout_marginLeft="16dp"
-                android:text="@string/next_chapter"/>
+        <ImageView
+            android:id="@+id/image_read_book_tool_expendable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:src="@drawable/zjb_icon_menu_fold"/>
 
-        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_menu_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"/>
+
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/dialog_main_h"
+                 android:layout_gravity="bottom"
+                 android:background="@color/default_trans">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/zjb_icon_read_main_menu_bg"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <FrameLayout
-                android:id="@+id/view_read_main_menu_catalog"
-                style="@style/MainDialog_Menu_Item_Frame">
+            <ImageView
+                android:id="@+id/image_dialog_watch_model"
+                android:layout_width="@dimen/dialog_watch_model_size"
+                android:layout_height="@dimen/dialog_watch_model_size"
+                android:layout_gravity="right"
+                android:layout_marginRight="20dp"
+                android:padding="12dp"
+                android:src="@drawable/zjb_icon_read_night_model"/>
 
-                <TextView
-                    style="@style/MainDialog_Menu_Text"
-                    android:drawableTop="@drawable/zjb_icon_read_main_menu_catalog"
-                    android:text="@string/read_catalog"/>
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/view_read_main_menu_light"
-                style="@style/MainDialog_Menu_Item_Frame">
-
-                <TextView
-                    style="@style/MainDialog_Menu_Text"
-                    android:drawableTop="@drawable/zjb_icon_read_main_menu_light"
-                    android:text="@string/read_light"/>
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/view_read_main_menu_txt_size"
-                style="@style/MainDialog_Menu_Item_Frame">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <TextView
-                    style="@style/MainDialog_Menu_Text"
-                    android:drawableTop="@drawable/zjb_icon_read_main_menu_txt_size"
-                    android:text="@string/read_set_txt_size"
-                    android:id="@+id/textView"/>
-            </FrameLayout>
+                    android:id="@+id/tv_dialog_main_last_chapter"
+                    style="@style/MainDialog_Chapters_Text"
+                    android:layout_marginRight="16dp"
+                    android:text="@string/last_chapter"/>
 
-            <FrameLayout
-                android:id="@+id/view_read_main_menu_setting"
-                style="@style/MainDialog_Menu_Item_Frame">
+                <SeekBar
+                    android:id="@+id/seekbar_main_menu"
+                    android:layout_width="@dimen/dialog_main_seekbar_w"
+                    android:layout_height="@dimen/dialog_main_seekbar_h"
+                    android:minHeight="2dp"
+                    android:maxHeight="2dp"
+                    android:progress="10"
+                    android:max="100"
+                    android:thumb="@drawable/zjb_shape_dialog_seekbar_indeterminat"
+                    android:progressDrawable="@drawable/zjb_shape_dialog_seekbar_progress"/>
 
                 <TextView
-                    style="@style/MainDialog_Menu_Text"
-                    android:drawableTop="@drawable/zjb_icon_read_main_menu_setting"
-                    android:text="@string/read_setting"/>
-            </FrameLayout>
+                    android:id="@+id/tv_dialog_main_next_chapter"
+                    style="@style/MainDialog_Chapters_Text"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/next_chapter"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:id="@+id/view_read_main_menu_catalog"
+                    style="@style/MainDialog_Menu_Item_Frame">
+
+                    <TextView
+                        style="@style/MainDialog_Menu_Text"
+                        android:drawableTop="@drawable/zjb_icon_read_main_menu_catalog"
+                        android:text="@string/read_catalog"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/view_read_main_menu_light"
+                    style="@style/MainDialog_Menu_Item_Frame">
+
+                    <TextView
+                        style="@style/MainDialog_Menu_Text"
+                        android:drawableTop="@drawable/zjb_icon_read_main_menu_light"
+                        android:text="@string/read_light"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/view_read_main_menu_txt_size"
+                    style="@style/MainDialog_Menu_Item_Frame">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        style="@style/MainDialog_Menu_Text"
+                        android:drawableTop="@drawable/zjb_icon_read_main_menu_txt_size"
+                        android:text="@string/read_set_txt_size"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/view_read_main_menu_setting"
+                    style="@style/MainDialog_Menu_Item_Frame">
+
+                    <TextView
+                        style="@style/MainDialog_Menu_Text"
+                        android:drawableTop="@drawable/zjb_icon_read_main_menu_setting"
+                        android:text="@string/read_setting"/>
+                </FrameLayout>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</FrameLayout>
+    </FrameLayout>
+</LinearLayout>

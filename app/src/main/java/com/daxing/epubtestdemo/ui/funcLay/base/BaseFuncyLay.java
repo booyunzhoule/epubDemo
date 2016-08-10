@@ -1,4 +1,4 @@
-package com.daxing.epubtestdemo.funcLay.base;
+package com.daxing.epubtestdemo.ui.funcLay.base;
 
 import android.content.Context;
 import android.os.Bundle;

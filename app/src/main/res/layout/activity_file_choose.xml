@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.daxing.epubtestdemo.ui.FileChooseActivity">
+    tools:context="com.daxing.epubtestdemo.ui.activity.FileChooseActivity">
 
     <ListView
         android:id="@+id/listview_choose_file"

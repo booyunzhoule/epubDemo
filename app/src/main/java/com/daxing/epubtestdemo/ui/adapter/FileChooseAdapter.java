@@ -1,4 +1,4 @@
-package com.daxing.epubtestdemo.adapter;
+package com.daxing.epubtestdemo.ui.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -12,7 +12,6 @@ import com.daxing.epubtestdemo.R;
 import com.daxing.epubtestdemo.model.ReadableFile;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
 /**
  * Created by win7 on 2016/8/9.

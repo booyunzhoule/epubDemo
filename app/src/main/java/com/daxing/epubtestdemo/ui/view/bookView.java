@@ -1,7 +1,9 @@
-package com.daxing.epubtestdemo.funcLay.base;
+package com.daxing.epubtestdemo.ui.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+
+import com.daxing.epubtestdemo.ui.funcLay.base.BaseFuncyLay;
 
 /**
  * Created by win7 on 2016/8/9.

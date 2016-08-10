@@ -1,4 +1,4 @@
-package com.daxing.epubtestdemo.ui;
+package com.daxing.epubtestdemo.ui.activity;
 
 import android.content.Intent;
 import android.os.Environment;
@@ -9,7 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.daxing.epubtestdemo.R;
-import com.daxing.epubtestdemo.adapter.FileChooseAdapter;
+import com.daxing.epubtestdemo.ui.adapter.FileChooseAdapter;
 import com.daxing.epubtestdemo.model.ReadableFile;
 
 import java.io.File;
@@ -18,7 +18,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 public class FileChooseActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 

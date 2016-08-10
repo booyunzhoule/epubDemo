@@ -1,11 +1,11 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/toolbar_color</item>
+        <item name="colorPrimaryDark">@color/toolbar_color</item>
+        <item name="colorAccent">@color/toolbar_color</item>
     </style>
 
     <style name="MainDialog_Chapters_Text">
@@ -17,9 +17,10 @@
     </style>
 
     <style name="MainDialog_Menu_Text">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">48dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">10sp</item>
         <item name="android:textColor">@color/default_white</item>
         <item name="android:drawablePadding">10dp</item>
@@ -44,4 +45,6 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:backgroundDimEnabled">true</item>
     </style>
+
+    <color name="toolbar_color">#3C3C3C</color>
 </resources>

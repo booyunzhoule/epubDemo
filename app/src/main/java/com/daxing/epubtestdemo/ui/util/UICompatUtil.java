@@ -1,4 +1,4 @@
-package com.daxing.epubtestdemo.util;
+package com.daxing.epubtestdemo.ui.util;
 
 import android.graphics.drawable.Drawable;
 import android.os.Build;

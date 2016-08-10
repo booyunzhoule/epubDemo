@@ -6,4 +6,6 @@
     <dimen name="dialog_watch_model_size">68dp</dimen>
     <dimen name="dialog_main_seekbar_w">168dp</dimen>
     <dimen name="dialog_main_seekbar_h">9dp</dimen>
+    <dimen name="toolbar_h">54dp</dimen>
+    <dimen name="titleBar_h">50dp</dimen>
 </resources>
