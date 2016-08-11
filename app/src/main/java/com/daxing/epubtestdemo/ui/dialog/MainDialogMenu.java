@@ -1,45 +1,33 @@
 package com.daxing.epubtestdemo.ui.dialog;
 
-import android.app.Activity;
 import android.app.Dialog;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.widget.PopupMenu;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.SeekBar;
-import android.widget.TextView;
+import android.widget.PopupWindow;
 
 import com.daxing.epubtestdemo.R;
-import com.daxing.epubtestdemo.ui.popmenu.DemoPopMenu;
+import com.daxing.epubtestdemo.ui.funcLay.MainMenuFuncyLay;
 import com.daxing.epubtestdemo.ui.util.UIHelper;
-
-import static android.R.attr.id;
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 /**
  * Created by win7 on 2016/8/9.
  */
 
-public class MainDialogMenu extends MenuBaseDialogFrag implements View.OnClickListener {
+public class MainDialogMenu extends MenuBaseDialogFrag implements View.OnClickListener, PopupWindow.OnDismissListener {
     private boolean isPublic = false ;
     private boolean  isFold = false ;
-    private boolean isNightModel = true;
+
     private FragmentActivity activity;
     private View view;
-    private DemoPopMenu popupMenu;
-
-    private ImageView backImage,publicImage,toolImage,modelImage;
-    private TextView lastChapterText,nextChapterText;
-    private FrameLayout catalogView,lightView,txtSizeView,settingView;
-    private SeekBar mSeekBar;
-    private LinearLayout bgView;
+    private PopupWindow popupMenu;
+    private ImageView backImage,publicImage,toolImage;
+    private LinearLayout containerView,bgView;
+    private MainMenuFuncyLay mainMenuFuncyLay;
     @Override
     public Dialog onCreateDialog(FragmentActivity activity, Bundle savedInstanceState) {
         this.activity = activity;
@@ -48,31 +36,16 @@ public class MainDialogMenu extends MenuBaseDialogFrag implements View.OnClickLi
         backImage = (ImageView) view.findViewById(R.id.image_read_book_back);
         publicImage = (ImageView) view.findViewById(R.id.image_read_book_public);
         toolImage = (ImageView) view.findViewById(R.id.image_read_book_tool_expendable);
+        containerView = (LinearLayout)view.findViewById(R.id.view_menu_container);
         bgView = (LinearLayout) view.findViewById(R.id.view_menu_bg);
-        modelImage = (ImageView) view.findViewById(R.id.image_dialog_watch_model);
-        lastChapterText = (TextView) view.findViewById(R.id.tv_dialog_main_last_chapter);
-        nextChapterText = (TextView) view.findViewById(R.id.tv_dialog_main_next_chapter);
-        mSeekBar = (SeekBar)view.findViewById(R.id.seekbar_main_menu) ;
-        catalogView = (FrameLayout)view.findViewById(R.id.view_read_main_menu_catalog) ;
-        lightView = (FrameLayout)view.findViewById(R.id.view_read_main_menu_light) ;
-        txtSizeView = (FrameLayout)view.findViewById(R.id.view_read_main_menu_txt_size) ;
-        settingView = (FrameLayout)view.findViewById(R.id.view_read_main_menu_setting) ;
-
+        mainMenuFuncyLay = new MainMenuFuncyLay(activity);
+        mainMenuFuncyLay.setParentView(containerView);
+        containerView.addView(mainMenuFuncyLay);
         UIHelper.setNoFastClickListener(backImage,this);
         UIHelper.setNoFastClickListener(publicImage,this);
         UIHelper.setNoFastClickListener(toolImage,this);
         UIHelper.setNoFastClickListener(bgView,this);
-        UIHelper.setNoFastClickListener(modelImage,this);
-        UIHelper.setNoFastClickListener(lastChapterText,this);
-        UIHelper.setNoFastClickListener(nextChapterText,this);
-        UIHelper.setNoFastClickListener(catalogView,this);
-        UIHelper.setNoFastClickListener(lightView,this);
-        UIHelper.setNoFastClickListener(txtSizeView,this);
-        UIHelper.setNoFastClickListener(settingView,this);
 
-        popupMenu = new DemoPopMenu(activity,view.findViewById(R.id.image_read_book_tool_expendable));
-        popupMenu.getMenuInflater().inflate(R.menu.menu_tool,popupMenu.getMenu());
-        popupMenu.setMenuImageView(toolImage);
 
         Dialog dialog = buildDefaultDialog(activity,view);
         dialog.setCanceledOnTouchOutside(true);
@@ -101,89 +74,56 @@ public class MainDialogMenu extends MenuBaseDialogFrag implements View.OnClickLi
             case R.id.view_menu_bg:
                 dismissDialog();
                 break;
-            case R.id.image_dialog_watch_model:
-                onChangeModelListener();
+            case R.id.view_menu_tool_container:
+                popupMenu.dismiss();
                 break;
-            case R.id.tv_dialog_main_last_chapter:
-                onTurnToLastChapterListener();
+            case R.id.checkbox_tool_menu_label:
+                onLabelListener();
                 break;
-            case R.id.tv_dialog_main_next_chapter:
-                onTurnToNextChapterListener();
+            case R.id.checkbox_tool_menu_collect:
+                onCollectListener();
                 break;
-            case R.id.view_read_main_menu_catalog:
-                onShowCatalogLister();
-                break;
-            case R.id.view_read_main_menu_light:
-                onSetLightListener();
-                break;
-            case R.id.view_read_main_menu_txt_size:
-                onSetTxtSizeListener();
-                break;
-            case R.id.view_read_main_menu_setting:
-                onSettingListener();
+            case R.id.image_tool_menu_transpond:
+                onTranSpondListener();
                 break;
         }
     }
 
     /**
-     * 其他设置
+     * 转发
      */
-    private void onSettingListener() {
+    private void onTranSpondListener() {
 
     }
 
     /**
-     * 设置字体大小
+     * 收藏
      */
-    private void onSetTxtSizeListener() {
-    }
-
-    /**
-     * 设置屏幕亮度
-     */
-    private void onSetLightListener() {
+    private void onCollectListener() {
 
     }
 
     /**
-     * 显示章节菜单
+     * 添加书签
      */
-    private void onShowCatalogLister() {
+    private void onLabelListener() {
 
-    }
-
-    /**
-     * 跳转到下一章节
-     */
-    private void onTurnToNextChapterListener() {
-
-    }
-
-    /**
-     * 跳转到上一章节
-     */
-    private void onTurnToLastChapterListener() {
-    }
-
-    /**
-     * 改变阅读模式：日间模式和夜间模式
-     */
-    private void onChangeModelListener() {
-
-        if (isNightModel){
-            isNightModel = false ;
-            modelImage.setImageResource(R.drawable.zkn_icon_read_daytime_model);
-        }else{
-            isNightModel = true ;
-            modelImage.setImageResource(R.drawable.zjb_icon_read_night_model);
-        }
     }
 
     /**
      * 工具展开
      */
     private void onToolFoldListener() {
-            popupMenu.show();
+        toolImage.setImageResource(R.drawable.zjb_icon_menu_unfold);
+        ViewGroup menuView = (ViewGroup) LayoutInflater.from(activity).inflate(R.layout.menu_main_popup_tool, null, true);
+         popupMenu = new PopupWindow(menuView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);
+        popupMenu.setOutsideTouchable(true);
+        popupMenu.setOnDismissListener(this);
+        popupMenu.showAsDropDown(toolImage);
+        UIHelper.setNoFastClickListener(menuView.findViewById(R.id.view_menu_tool_container),this);
+        UIHelper.setNoFastClickListener(menuView.findViewById(R.id.checkbox_tool_menu_label),this);
+        UIHelper.setNoFastClickListener(menuView.findViewById(R.id.checkbox_tool_menu_collect),this);
+        UIHelper.setNoFastClickListener(menuView.findViewById(R.id.image_tool_menu_transpond),this);
     }
 
     /**
@@ -199,5 +139,13 @@ public class MainDialogMenu extends MenuBaseDialogFrag implements View.OnClickLi
             }
     }
 
+//    @Override
+//    public void onDismiss(PopupMenu menu) {
+//
+//    }
 
+    @Override
+    public void onDismiss() {
+        toolImage.setImageResource(R.drawable.zjb_icon_menu_fold);
+    }
 }

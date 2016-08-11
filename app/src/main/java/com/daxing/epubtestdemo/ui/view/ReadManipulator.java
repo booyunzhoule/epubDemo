@@ -4,15 +4,19 @@ import android.content.Context;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.daxing.epubtestdemo.R;
 import com.daxing.epubtestdemo.ui.activity.ReadBookActivity;
 import com.daxing.epubtestdemo.ui.dialog.MainDialogMenu;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
 import static android.view.MotionEvent.ACTION_MOVE;
 
 /**
@@ -23,28 +27,39 @@ public class ReadManipulator extends LinearLayout {
     private float windowWidth = 640;
 //    private Toolbar mToolBar;
     private Context mContext;
-
-
+    //TODO TEST
+    private  TextView textView;
 
     public ReadManipulator(Context context) {
-        super(context);
-        mContext = context;
+        this(context,null);
     }
 
     public ReadManipulator(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        mContext = context;
+        this(context, attrs,0);
+        initView(context);
     }
 
     public ReadManipulator(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mContext = context;
+        initView(context);
     }
 
-//    public void setmToolBar(Toolbar mToolBar) {
-//        this.mToolBar = mToolBar;
-//    }
+    private void initView(Context context) {
+        mContext = context;
+        LayoutInflater.from(mContext).inflate(R.layout.read_manipulator,this,true);
+        textView = (TextView)findViewById(R.id.tv_read_book_textview);
+//        Log.i("Test",textView.getTextSize() + "");
 
+
+    }
+
+//    public static void setTextSizeLarge(){
+//        textView.setTextSize(textView.getTextSize() + 1);
+//    }
+//
+//    public static void setTextSizeSmall(){
+//        textView.setTextSize(textView.getTextSize() - 1);
+//    }
     public boolean dispatchTouchEvent(MotionEvent ev) {
         final float x = ev.getX();
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             style="@style/SettingMenuDialogStyle">
+    <TextView
+        style="@style/SettingMenuDialogTitleStyle"
+        android:text="@string/page_turn_model"/>
+    <RadioGroup
+        android:id="@+id/radiogroup_dialog_menu_set_page_turner_model"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            style="@style/SettingMenuDialogPageTurnTextStyle"
+            android:text="@string/page_turn_model_simulate"
+            android:drawableTop="@drawable/selector_page_turn_model_simulate"
+            />
+
+        <RadioButton
+            style="@style/SettingMenuDialogPageTurnTextStyle"
+            android:text="@string/page_turn_model_vertical"
+            android:drawableTop="@drawable/selector_page_turn_model_vertical"/>
+        <RadioButton
+            style="@style/SettingMenuDialogPageTurnTextStyle"
+            android:text="@string/page_turn_model_horizontal"
+            android:drawableTop="@drawable/selector_page_turn_model_horizontal"/>
+    </RadioGroup>
+</LinearLayout>

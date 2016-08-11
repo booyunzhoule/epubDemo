@@ -6,4 +6,12 @@
     <string name="read_set_txt_size">字体大小</string>
     <string name="read_setting">阅读设置</string>
     <string name="next_chapter">下一章</string>
+    <string name="screen_light">屏幕亮度</string>
+    <string name="txt_size">字体大小</string>
+    <string name="txt_size_large">大</string>
+    <string name="txt_size_small">小</string>
+    <string name="page_turn_model">翻页方式</string>
+    <string name="page_turn_model_simulate">仿真</string>
+    <string name="page_turn_model_vertical">上下</string>
+    <string name="page_turn_model_horizontal">左右</string>
 </resources>

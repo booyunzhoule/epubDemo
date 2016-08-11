@@ -4,6 +4,7 @@
               android:layout_height="match_parent"
               android:background="@color/default_gray"
               android:fitsSystemWindows="true"
+              android:clipToPadding="false"
               android:orientation="vertical">
 
     <com.daxing.epubtestdemo.ui.view.ReadManipulator
@@ -11,11 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#ffffff"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="bashgdsasoidjs手动加搜到就搜到就搜到建瓯市抖擞的酒叟几点睡的奇偶发大半年附件是不能发即发生的发生的骄傲是欧基金是富含的思考空间反甲那是的你"/>
+        android:orientation="vertical"/>
 
-    </com.daxing.epubtestdemo.ui.view.ReadManipulator>
 </LinearLayout>

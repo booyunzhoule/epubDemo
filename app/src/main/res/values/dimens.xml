@@ -3,9 +3,13 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="dialog_main_h">170dp</dimen>
-    <dimen name="dialog_watch_model_size">68dp</dimen>
+    <dimen name="dialog_watch_model_size">65dp</dimen>
     <dimen name="dialog_main_seekbar_w">168dp</dimen>
     <dimen name="dialog_main_seekbar_h">9dp</dimen>
     <dimen name="toolbar_h">54dp</dimen>
     <dimen name="titleBar_h">50dp</dimen>
+
+    <dimen name="set_dialog_menu_h">135dp</dimen>
+    <dimen name="read_manipulator_gap">27dp</dimen>
+
 </resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/view_menu_tool_container"
+              android:orientation="vertical"
+              android:background="@color/default_trans"
+              android:gravity="right"
+              android:layout_gravity="right|top"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <CheckBox
+        android:id="@+id/checkbox_tool_menu_label"
+         style="@style/MainDialogToolItem"
+        android:drawableTop="@drawable/selector_tool_item_label"
+        android:button="@null"
+        android:textSize="0dp"
+        android:layout_marginTop="9dp"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_tool_menu_collect"
+        style="@style/MainDialogToolItem"
+        android:drawableTop="@drawable/selector_tool_item_collect"
+        android:button="@null"
+        android:textSize="0dp"/>
+
+    <ImageView
+        android:id="@+id/image_tool_menu_transpond"
+        style="@style/MainDialogToolItem"
+        android:src="@drawable/zjb_icon_read_book_transpond"/>
+</LinearLayout>

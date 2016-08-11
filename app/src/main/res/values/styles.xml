@@ -46,5 +46,63 @@
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 
-    <color name="toolbar_color">#3C3C3C</color>
+    <!--菜单风格-->
+    <style name="SettingMenuDialogStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/set_dialog_menu_h</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/default_gray</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <!--菜单标题-->
+    <style name="SettingMenuDialogTitleStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">18dp</item>
+        <item name="android:textColor">@color/default_white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!--菜单栏的seekBar-->
+    <style name="SettingMenuDialogSeekBarStyle">
+        <item name="android:layout_width">@dimen/dialog_main_seekbar_w</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">2dp</item>
+        <item name="android:maxHeight">2dp</item>
+        <item name="android:progress">10</item>
+        <item name="android:max">100</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:thumb">@drawable/zjb_shape_dialog_seekbar_indeterminat</item>
+        <item name="android:progressDrawable">@drawable/zjb_shape_dialog_seekbar_progress</item>
+    </style>
+
+    <!--阅读翻页模式文字分隔-->
+    <style name="SettingMenuDialogPageTurnTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:textColor">@color/selector_text</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:drawablePadding">10sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+    </style>
+
+    <style name="MainDialogToolItem">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">9dp</item>
+        <item name="android:paddingBottom">9dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:paddingLeft">6dp</item>
+
+
+
+
+    </style>
+
 </resources>
