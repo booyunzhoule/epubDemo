@@ -6,9 +6,11 @@ import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.daxing.epubtestdemo.R;
 import com.daxing.epubtestdemo.ui.funcLay.MainMenuFuncyLay;
@@ -21,13 +23,18 @@ import com.daxing.epubtestdemo.ui.util.UIHelper;
 public class MainDialogMenu extends MenuBaseDialogFrag implements View.OnClickListener, PopupWindow.OnDismissListener {
     private boolean isPublic = false ;
     private boolean  isFold = false ;
-
+    private TextView txtView;
     private FragmentActivity activity;
     private View view;
     private PopupWindow popupMenu;
     private ImageView backImage,publicImage,toolImage;
     private LinearLayout containerView,bgView;
     private MainMenuFuncyLay mainMenuFuncyLay;
+
+    public void setTxtView(TextView txtView) {
+        this.txtView = txtView;
+    }
+
     @Override
     public Dialog onCreateDialog(FragmentActivity activity, Bundle savedInstanceState) {
         this.activity = activity;
@@ -40,14 +47,16 @@ public class MainDialogMenu extends MenuBaseDialogFrag implements View.OnClickLi
         bgView = (LinearLayout) view.findViewById(R.id.view_menu_bg);
         mainMenuFuncyLay = new MainMenuFuncyLay(activity);
         mainMenuFuncyLay.setParentView(containerView);
+        mainMenuFuncyLay.setTxtView(txtView);
+        mainMenuFuncyLay.setMainDialogMenu(this);
         containerView.addView(mainMenuFuncyLay);
         UIHelper.setNoFastClickListener(backImage,this);
         UIHelper.setNoFastClickListener(publicImage,this);
         UIHelper.setNoFastClickListener(toolImage,this);
         UIHelper.setNoFastClickListener(bgView,this);
 
-
         Dialog dialog = buildDefaultDialog(activity,view);
+        activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         dialog.setCanceledOnTouchOutside(true);
         return dialog;
     }

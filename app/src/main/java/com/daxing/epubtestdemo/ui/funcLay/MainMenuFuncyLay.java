@@ -11,8 +11,11 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.daxing.epubtestdemo.R;
+import com.daxing.epubtestdemo.ui.dialog.CatalogAndLabelDialogFrag;
+import com.daxing.epubtestdemo.ui.dialog.MainDialogMenu;
 import com.daxing.epubtestdemo.ui.funcLay.base.BaseFuncyLay;
 import com.daxing.epubtestdemo.ui.util.UIHelper;
+
 
 /**
  * Created by win7 on 2016/8/11.
@@ -25,6 +28,12 @@ public class MainMenuFuncyLay extends BaseFuncyLay implements View.OnClickListen
     private SeekBar mSeekBar;
     private boolean isNightModel = true;
     private LinearLayout parentView;
+    private TextView txtView;
+    private MainDialogMenu mainDialogMenu;
+
+    public void setMainDialogMenu(MainDialogMenu mainDialogMenu) {
+        this.mainDialogMenu = mainDialogMenu;
+    }
 
     public MainMenuFuncyLay(Context context) {
         super(context);
@@ -110,8 +119,10 @@ public class MainMenuFuncyLay extends BaseFuncyLay implements View.OnClickListen
      * 设置字体大小
      */
     private void onSetTxtSizeListener() {
+        TxtSizeMenuFuncyLay txtSizeMenuFuncyLay = new TxtSizeMenuFuncyLay(this.getContext());
+        txtSizeMenuFuncyLay.setTxtView(txtView);
         parentView.removeView(this);
-        parentView.addView(new TxtSizeMenuFuncyLay(this.getContext()));
+        parentView.addView(txtSizeMenuFuncyLay);
     }
 
     /**
@@ -126,7 +137,8 @@ public class MainMenuFuncyLay extends BaseFuncyLay implements View.OnClickListen
      * 显示章节菜单
      */
     private void onShowCatalogLister() {
-
+        mainDialogMenu.dismissDialog();
+        new CatalogAndLabelDialogFrag().initWithContext(this.getContext()).showDialog();
     }
 
     /**
@@ -159,5 +171,9 @@ public class MainMenuFuncyLay extends BaseFuncyLay implements View.OnClickListen
 
     public void setParentView(LinearLayout parentView) {
         this.parentView = parentView;
+    }
+
+    public void setTxtView(TextView txtView) {
+        this.txtView = txtView;
     }
 }

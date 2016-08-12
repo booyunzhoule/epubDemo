@@ -7,7 +7,7 @@
               android:clipToPadding="false"
               android:orientation="vertical">
 
-    <com.daxing.epubtestdemo.ui.view.ReadManipulator
+    <com.daxing.epubtestdemo.ui.view.EpubNavigator
         android:id="@+id/readmanipulator_read_book"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

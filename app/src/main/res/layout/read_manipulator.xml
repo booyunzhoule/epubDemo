@@ -31,7 +31,7 @@
         android:orientation="vertical"
         android:layout_weight="1">
         <TextView
-            android:id="@+id/text"
+            android:id="@+id/tv_read_book_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ahsshdhjasdh爱上当回事的好事多喝水的哈市的杀毒活塞的哈市的还是的撒的还会递阿红的活塞和还是打算的"

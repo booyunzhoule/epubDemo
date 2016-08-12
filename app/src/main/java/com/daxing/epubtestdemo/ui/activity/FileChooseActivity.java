@@ -40,7 +40,7 @@ public class FileChooseActivity extends AppCompatActivity implements AdapterView
             readableFile.fileName = fileList.get(i).getName();
             readableFile.fileSize = getFileSize(fileList.get(i));
             readableFile.file = fileList.get(i);
-            readableFile.fomat = getFileFormat(fileList.get(i));
+            readableFile.format = getFileFormat(fileList.get(i));
             list.add(readableFile);
         }
         adapter = new FileChooseAdapter(this, list);
@@ -105,7 +105,7 @@ public class FileChooseActivity extends AppCompatActivity implements AdapterView
         String fileName = file.getName().toLowerCase();
         if (fileName.endsWith(".txt")) {
             i = ReadableFile.FORMAT_TXT;
-        } else if (fileName.endsWith(".pub")) {
+        } else if (fileName.endsWith(".epub")) {
             i = ReadableFile.FORMAT_EPUB;
         }
         return i;
@@ -114,7 +114,8 @@ public class FileChooseActivity extends AppCompatActivity implements AdapterView
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent intent = new Intent();
-        intent.putExtra(TEST_READABLE_FILE_URL, list.get(i).file.getAbsolutePath());
+//        intent.putExtra(TEST_READABLE_FILE_URL, list.get(i).file.getAbsolutePath());
+       intent.putExtra("TEST_READABLE_FILE",list.get(i));
         intent.setClass(FileChooseActivity.this, ReadBookActivity.class);
         startActivity(intent);
     }

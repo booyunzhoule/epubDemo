@@ -158,7 +158,6 @@ public abstract class MenuBaseDialogFrag extends DialogFragment {
      */
     protected final Dialog buildDefaultDialog(Activity activity, View lay) {
         Dialog dialog = new Dialog(activity, R.style.FloatTranslucentStyle);
-        mActivity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         dialog.setContentView(lay);
         return dialog;
     }

@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.daxing.epubtestdemo.ui.view.EpubNavigator;
+
 /**
  * Created by win7 on 2016/8/9.
  */
@@ -55,6 +57,20 @@ public class UIHelper {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
+
+    public static int sp2px(Context context, float spValue) {
+        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (spValue * fontScale + 0.5f);
+    }
+
+    /**
+     * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
+     */
+    public static int px2dip(EpubNavigator context, float pxValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (pxValue / scale + 0.5f);
+    }
+
     public static void tranlucentTitle(Activity activity){
         Window window = activity.getWindow();
 //		//     SDK > 5.0时状态栏透明化, 在部分手机上无效果

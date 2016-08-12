@@ -51,7 +51,6 @@ public class FileChooseAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
         viewHolder.nameText.setText(list.get(i).fileName);
-        Log.i("MSG", list.get(i).fileName);
         if (list.get(i).fileSize < 1024) {
             viewHolder.sizeText.setText(list.get(i).fileSize + "byts");
         } else if (list.get(i).fileSize > 1024 && list.get(i).fileSize < 1048576) {

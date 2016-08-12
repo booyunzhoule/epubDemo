@@ -16,14 +16,16 @@ public class ReadableFile implements Parcelable{
     public String fileName;//文件的名称
     public String fileURL;//文件的地址
     public File file;//文件
-    public int fomat;
+    public int format;
 
-    public ReadableFile(){}
+    public ReadableFile() {
+    }
 
-    public ReadableFile(Parcel in) {
+    protected ReadableFile(Parcel in) {
         fileSize = in.readLong();
         fileName = in.readString();
         fileURL = in.readString();
+        format = in.readInt();
     }
 
     public static final Creator<ReadableFile> CREATOR = new Creator<ReadableFile>() {
@@ -44,9 +46,10 @@ public class ReadableFile implements Parcelable{
     }
 
     @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeLong(fileSize);
-        parcel.writeString(fileName);
-        parcel.writeString(fileURL);
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(fileSize);
+        dest.writeString(fileName);
+        dest.writeString(fileURL);
+        dest.writeInt(format);
     }
 }

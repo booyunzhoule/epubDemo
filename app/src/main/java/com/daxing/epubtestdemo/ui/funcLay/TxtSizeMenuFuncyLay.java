@@ -8,7 +8,6 @@ import android.widget.TextView;
 import com.daxing.epubtestdemo.R;
 import com.daxing.epubtestdemo.ui.funcLay.base.BaseFuncyLay;
 import com.daxing.epubtestdemo.ui.util.UIHelper;
-import com.daxing.epubtestdemo.ui.view.ReadManipulator;
 
 import static com.daxing.epubtestdemo.R.id.tv_set_txt_size_menu_large;
 
@@ -17,7 +16,12 @@ import static com.daxing.epubtestdemo.R.id.tv_set_txt_size_menu_large;
  */
 
 public class TxtSizeMenuFuncyLay extends BaseFuncyLay implements View.OnClickListener {
-    private TextView largeText,smallText;
+    private TextView largeText, smallText;
+    private TextView txtView;
+
+    public void setTxtView(TextView txtView) {
+        this.txtView = txtView;
+    }
 
     public TxtSizeMenuFuncyLay(Context context) {
         super(context);
@@ -38,10 +42,10 @@ public class TxtSizeMenuFuncyLay extends BaseFuncyLay implements View.OnClickLis
 
     @Override
     public void initView(AttributeSet attrs) {
-        largeText = (TextView)findViewById(tv_set_txt_size_menu_large);
-        smallText = (TextView)findViewById(R.id.tv_set_txt_size_menu_small);
-        UIHelper.setNoFastClickListener(largeText,this);
-        UIHelper.setNoFastClickListener(smallText,this);
+        largeText = (TextView) findViewById(tv_set_txt_size_menu_large);
+        smallText = (TextView) findViewById(R.id.tv_set_txt_size_menu_small);
+        UIHelper.setNoFastClickListener(largeText, 200, this);
+        UIHelper.setNoFastClickListener(smallText, 200, this);
     }
 
     @Override
@@ -51,12 +55,13 @@ public class TxtSizeMenuFuncyLay extends BaseFuncyLay implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        final float fontScale = this.getResources().getDisplayMetrics().scaledDensity;
+        switch (view.getId()) {
             case R.id.tv_set_txt_size_menu_large:
-//                ReadManipulator.setTextSizeLarge();
+                txtView.setTextSize((int) (txtView.getTextSize() / fontScale + 0.5f) + 1);
                 break;
             case R.id.tv_set_txt_size_menu_small:
-//                ReadManipulator.setTextSizeSmall();
+                txtView.setTextSize((int) (txtView.getTextSize() / fontScale + 0.5f) - 1);
                 break;
         }
     }

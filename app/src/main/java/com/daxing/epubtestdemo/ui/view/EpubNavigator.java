@@ -1,65 +1,63 @@
 package com.daxing.epubtestdemo.ui.view;
 
 import android.content.Context;
-import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.daxing.epubtestdemo.R;
-import com.daxing.epubtestdemo.ui.activity.ReadBookActivity;
 import com.daxing.epubtestdemo.ui.dialog.MainDialogMenu;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
 import static android.view.MotionEvent.ACTION_MOVE;
 
 /**
  * Created by win7 on 2016/8/10.
  */
 
-public class ReadManipulator extends LinearLayout {
+public class EpubNavigator extends LinearLayout {
     private float windowWidth = 640;
-//    private Toolbar mToolBar;
-    private Context mContext;
+    //    private Toolbar mToolBar;
+    private Context mContext = null;
     //TODO TEST
-    private  TextView textView;
-
-    public ReadManipulator(Context context) {
-        this(context,null);
+    private  static TextView txtView;
+    private static float txtSize = 10;
+//    final  float fontScale = this.getResources().getDisplayMetrics().scaledDensity;
+    public EpubNavigator(Context context) {
+        this(context, null);
     }
 
-    public ReadManipulator(Context context, AttributeSet attrs) {
-        this(context, attrs,0);
+    public EpubNavigator(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
         initView(context);
     }
 
-    public ReadManipulator(Context context, AttributeSet attrs, int defStyleAttr) {
+    public EpubNavigator(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView(context);
     }
 
     private void initView(Context context) {
         mContext = context;
-        LayoutInflater.from(mContext).inflate(R.layout.read_manipulator,this,true);
-        textView = (TextView)findViewById(R.id.tv_read_book_textview);
-//        Log.i("Test",textView.getTextSize() + "");
-
+        LayoutInflater.from(mContext).inflate(R.layout.read_manipulator, this, true);
+        txtView = (TextView) findViewById(R.id.tv_read_book_textview);
+        Log.i("Test", txtView.getTextSize() + "");
+        txtSize = txtView.getTextSize();
 
     }
 
-//    public static void setTextSizeLarge(){
-//        textView.setTextSize(textView.getTextSize() + 1);
-//    }
-//
-//    public static void setTextSizeSmall(){
-//        textView.setTextSize(textView.getTextSize() - 1);
-//    }
+    public static void setTextSizeLarge() {
+
+//        txtView.setTextSize((int) (txtView.getTextSize() / fontScale + 0.5f) + 1);
+    }
+
+    public static void setTextSizeSmall() {
+        txtSize = txtView.getTextSize();
+        txtView.setTextSize(txtSize - 1);
+    }
+
     public boolean dispatchTouchEvent(MotionEvent ev) {
         final float x = ev.getX();
 
@@ -92,7 +90,9 @@ public class ReadManipulator extends LinearLayout {
      * 主菜单对话框
      */
     private void onShowMainMenu() {
-        new MainDialogMenu().initWithContext(mContext).showDialog();
+        MainDialogMenu mainDialogMenu =  new MainDialogMenu();
+        mainDialogMenu.setTxtView(txtView);
+        mainDialogMenu.initWithContext(mContext).showDialog();
     }
 
 }

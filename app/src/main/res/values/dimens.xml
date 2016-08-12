@@ -11,5 +11,5 @@
 
     <dimen name="set_dialog_menu_h">135dp</dimen>
     <dimen name="read_manipulator_gap">27dp</dimen>
-
+    <dimen name="catalog_and_label_w">308dp</dimen>
 </resources>
